@@ -1,0 +1,21 @@
+{
+  "name": "autovalidate",
+  "version": "1.0.0",
+  "description": "validation library for express or any other object source",
+  "main": "index.js",
+  "scripts": {
+    "test": "node_modules/mocha/bin/mocha --exit"
+  },
+  "keywords": [
+    "validation",
+    "express",
+    "object"
+  ],
+  "author": "7c",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.3.6",
+    "mocha": "^9.2.0",
+    "mybase": "^1.0.33"
+  }
+}
