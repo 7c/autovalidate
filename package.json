@@ -1,10 +1,14 @@
 {
   "name": "@7c/autovalidate",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "validation library for express or any other object source",
   "main": "index.js",
   "scripts": {
     "test": "node_modules/mocha/bin/mocha --exit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/7c/autovalidate"
   },
   "keywords": [
     "validation",
