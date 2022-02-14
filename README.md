@@ -28,51 +28,57 @@ this function takes an input object such as `req.body` or `req.params` or any Ja
 const  { validateParameters } = require('autovalidate')
 
 let configuration = [
+    { key: 'token', type: ['string'] },
+    { key: 'ip', type: ['ip4'] },
+    { key: 'from', type: ['email'] },
     {
-        key:'token',
-        type:['string'],
+        key: 'PayerID', type: ['string'],
+        length: [3, 64],
+        required: false,
+        default: 'NONE'
     },
     {
-        key:'ip',
-        type:['ip4']
+        key: 'uuid', type: ['string'],
+        required: true,
+        validator: (v) => validUUID(v)
     },
     {
-        key:'from',
-        type:['email']
+        key: 'optional', type: ['string', 'boolean'],
+        required: false,
+        default: false
     },
     {
-        key:'PayerID',
-        type:['string],
-        length:[3,64]
-        required:false,
-        default:'NONE'
-    },
-    {
-        key:'uuid',
-        type:['string'],
-        required:true,
-        validator: (v)=>validUUID(v)
-    },
-    {
-        key: 'optional',
-        type: ['string','boolean'],
-        required:false,
-        default:false
-    },
-    {
-        key: 'theid',
-        type: ['number'],
+        key: 'theid', type: ['number'],
         min: 1,
-        required:false,
-        default:false
+        required: false,
+        default: false
     }
 ]
-
 let response = validateParameters({
-    token:'validToken',
-    ip:'1.2.3.4',
-    email:'test@gmail.com'
+    token: 'validToken',
+    ip: '1.2.3.4',
+    email: 'test@gmail.com'
+}, configuration )
+
+if (response.validated) {
+    console.log(`sucess`)
+} else {
+    console.log(`validation has failed:`,response.issues)
 }
-)
 
 ```
+
+## response
+the response is a structure which has 3 properties: `validated:bool`,`issues:[]`,`values:{}`
+
+### validation failed
+if validation has failed then you will have `validated` set to false, `issues` array will contain explanation why the validation has failed and `values` object will be empty
+```
+{
+  validated: false,
+  issues: [ "'from' is required", "'uuid' is required" ],
+  values: {}
+}
+```
+### validation succeed
+then `validated` will be true, issues array will be empty and `values` object contains corresponding values
