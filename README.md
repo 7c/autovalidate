@@ -25,7 +25,7 @@ string,boolean,number,array,object
 this function takes an input object such as `req.body` or `req.params` or any Javascript Hash Object. This function throws an exception in case the configuration is troublesome. This will avoid you as developer from mistakes. Since the configuration is constant, you do not expect an exception at production.
 
 ```
-const  { validateParameters } = require('autovalidate')
+const  { validateParameters } = require('@7c/autovalidate')
 
 let configuration = [
     { key: 'token', type: ['string'] },
