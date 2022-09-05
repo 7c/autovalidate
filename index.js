@@ -108,7 +108,12 @@ function validateParameters(target, validate) {
         for (let row of validate) {
             let actualValue = row.actualValue
 
-            if (row.hasOwnProperty('default') && typeOf(row.default) === typeOf(actualValue)) continue
+            // if (row.hasOwnProperty('default') && typeOf(row.default) === typeOf(actualValue)) continue
+            if (row.hasOwnProperty('default')) {
+                if (!target.hasOwnProperty(row.key)) continue
+                if (row.type.includes(customType(target[row.key]))) continue
+            }
+                
 
             if (!row.type.includes(typeOf(actualValue)) && !row.type.includes(customType(actualValue))) {
                 // if (!row.hasOwnProperty('default') && typeOf(row.default)!==typeOf(actualValue)) 
@@ -179,6 +184,7 @@ function validateParameters(target, validate) {
         }
     }
 
+    // put values
     if (response.validated) {
         for (let row of validate) {
             response.values[row.key] = row.actualValue

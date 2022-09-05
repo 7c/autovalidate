@@ -158,6 +158,14 @@ describe('function validateParameters', function () {
         expect(isValidated(validateParameters({x:5},[{key:'a',type:['ip4'],required:false,default:'ok'}]))).property('values').property('a').eq('ok')
     })
 
+    it('if property is not required and property is posted with wrong custom type, it should fail',async function() {
+        // default can be any type
+        // expect(isValidated(validateParameters({x:5},[{key:'x',type:['ip4'],required:false,default:null}]))).property('values').property('a').be.null
+        notValidated(validateParameters({ip:'john'},[{key:'ip',type:['ip4'],required:false,default:'1.2.3.4'}]),"type mismatch")
+        // console.log(x)
+    })
+
+    
     it('url custom type',async function() {
         // default can be any type
         notValidated(validateParameters({a:5},[{key:'a',type:['url']}]),'expected url')
