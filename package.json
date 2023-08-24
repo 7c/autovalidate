@@ -1,6 +1,6 @@
 {
   "name": "@7c/autovalidate",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "validation library for express or any other object source",
   "main": "index.js",
   "scripts": {

@@ -4,7 +4,7 @@ small but well-tested library for input validation
 
 ### Installation
 `
-npm i @7c/autovalidate --save
+npm i https://github.com/7c/autovalidate --save
 `
 
 ### Features
