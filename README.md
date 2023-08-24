@@ -17,7 +17,7 @@ npm i @7c/autovalidate --save
 
 ## Types
 ### Custom Types
-ip4,ip6,url,email
+ip4,ip6,url,email,hostname
 ### Basic Types
 string,boolean,number,array,object
 

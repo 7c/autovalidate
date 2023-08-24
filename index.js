@@ -1,4 +1,6 @@
+const psl = require('psl')
 const { validEmail, validURL } = require('mybase')
+const net = require('net')
 
 function validateParameters(target, validate) {
     function propExists(t, propName) {
@@ -12,9 +14,9 @@ function validateParameters(target, validate) {
     }
 
     function customType(val) {
-        var net = require('net')
         if (net.isIPv4(val) === true) return 'ip4'
         if (net.isIPv6(val) === true) return 'ip6'
+        if (typeof val==='string' && psl.isValid(val)===true) return 'hostname'
         if (isURL(val)) return 'url'
         if (validEmail(val) === true) return 'email'
         return typeOf(val)
@@ -31,7 +33,7 @@ function validateParameters(target, validate) {
 
     if (typeOf(target) !== 'object') throw new Error("target needs to be an object") // tested
     if (typeOf(validate) !== 'array') throw new Error("'validate' needs to be an array") //tested
-    let custom_types = ['ip4', 'email', 'ip6', 'url']
+    let custom_types = ['ip4', 'email', 'ip6', 'url','hostname']
     let basic_types = ['string', 'number', 'boolean', 'array', 'object']
 
     let response = {
@@ -113,7 +115,6 @@ function validateParameters(target, validate) {
                 if (!target.hasOwnProperty(row.key)) continue
                 if (row.type.includes(customType(target[row.key]))) continue
             }
-                
 
             if (!row.type.includes(typeOf(actualValue)) && !row.type.includes(customType(actualValue))) {
                 // if (!row.hasOwnProperty('default') && typeOf(row.default)!==typeOf(actualValue)) 
