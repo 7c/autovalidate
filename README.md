@@ -27,7 +27,6 @@ this function takes an input object such as `req.body` or `req.params` or any Ja
 const  { validateParameters } = require('@7c/autovalidate')
 // OR
 import { validateParameters } from '@7c/autovalidate'
-```
 
 let configuration = [
     { key: 'token', type: ['string'] },
@@ -82,5 +81,6 @@ if validation has failed then you will have `validated` set to false, `issues` a
   values: {}
 }
 ```
+
 ### validation succeed
 then `validated` will be true, issues array will be empty and `values` object contains corresponding values
