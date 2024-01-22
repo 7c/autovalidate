@@ -180,7 +180,7 @@ describe('function validateParameters', function () {
         isValidated(validateParameters({a:'https://test.com:89/ok/index.php'},[{key:'a',type:['url']}]))
     })
 
-    it.only('hostname custom type',async function() {
+    it('hostname custom type',async function() {
         isValidated(validateParameters({h:'test.com'},[{key:'h',type:['hostname']}]))
         isValidated(validateParameters({h:'sub.test.com'},[{key:'h',type:['hostname']}]))
         notValidated(validateParameters({h:'sub. test.com'},[{key:'h',type:['hostname']}]),'expected hostname')

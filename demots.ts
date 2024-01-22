@@ -1,4 +1,4 @@
-const { validateParameters } = require('./index')
+import { validateParameters } from "."
 const { validUUID4 } = require('mybase')
 
 async function start() {
@@ -16,7 +16,7 @@ async function start() {
             {
                 key: 'uuid', type: ['string'],
                 required: true,
-                validator: (v) => validUUID4(v)
+                validator: (v:any) => validUUID4(v)
             },
             {
                 key: 'optional', type: ['string', 'boolean'],

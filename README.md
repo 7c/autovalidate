@@ -1,5 +1,4 @@
 ## autovalidate
-
 small but well-tested library for input validation
 
 ### Installation
@@ -26,6 +25,9 @@ this function takes an input object such as `req.body` or `req.params` or any Ja
 
 ```
 const  { validateParameters } = require('@7c/autovalidate')
+// OR
+import { validateParameters } from '@7c/autovalidate'
+```
 
 let configuration = [
     { key: 'token', type: ['string'] },
