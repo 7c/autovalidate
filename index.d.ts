@@ -1,7 +1,7 @@
 export type autovalidateReturn = {
     validated:boolean,
     issues:Array<string>,
-    values:object
+    values:any
 }
 
 export type autoValidateConfigurationItem = {
