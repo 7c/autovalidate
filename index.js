@@ -112,7 +112,7 @@ function validateParameters(target, validate) {
 
             // if (row.hasOwnProperty('default') && typeOf(row.default) === typeOf(actualValue)) continue
             if (row.hasOwnProperty('default')) {
-                if (!target.hasOwnProperty(row.key)) continue
+                if (!Object.prototype.hasOwnProperty.call(target, row.key)) continue
                 if (row.type.includes(customType(target[row.key]))) continue
             }
 

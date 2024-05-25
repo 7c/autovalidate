@@ -15,6 +15,7 @@ npm i https://github.com/7c/autovalidate --save
 - min,max support for number
 
 ## Types
+
 ### Custom Types
 ip4,ip6,url,email,hostname
 ### Basic Types
