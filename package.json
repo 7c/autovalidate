@@ -1,10 +1,10 @@
 {
   "name": "@7c/autovalidate",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "validation library for express or any other object source",
   "main": "index.js",
   "scripts": {
-    "test": "node_modules/mocha/bin/mocha --exit"
+    "test": "npx mocha --exit"
   },
   "repository": {
     "type": "git",
@@ -18,12 +18,12 @@
   "author": "7c",
   "license": "ISC",
   "dependencies": {
-    "chai": "^4.3.6",
-    "mocha": "^9.2.0",
-    "mybase": "^1.1.2",
+    "mybase": "^1.1.47",
     "psl": "^1.9.0"
   },
   "devDependencies": {
-    "@types/node": "^20.11.5"
+    "@types/node": "^20.11.5",
+    "chai": "^4.3.6",
+    "mocha": "^11.1.0"
   }
 }
